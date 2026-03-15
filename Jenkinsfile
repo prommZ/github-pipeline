@@ -2,43 +2,22 @@ pipeline {
     agent any
 
     stages {
-
         stage('Checkout Code') {
             steps {
-                echo "Cloning repository from GitHub..."
-                checkout scm
+                echo "Cloning repository"
             }
         }
 
         stage('Build') {
             steps {
-                echo "Building the project..."
-                sh 'echo Build completed successfully'
+                echo "Building application"
             }
         }
 
         stage('Test') {
             steps {
-                echo "Running tests..."
-                sh 'echo All tests passed'
+                echo "Testing application"
             }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo "Deploying application..."
-                sh 'echo Deployment completed'
-            }
-        }
-
-    }
-
-    post {
-        success {
-            echo "Pipeline executed successfully"
-        }
-        failure {
-            echo "Pipeline failed"
         }
     }
 }
